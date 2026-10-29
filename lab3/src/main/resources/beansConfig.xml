@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="basicStudent" class="com.site.Student"/>
+
+
+    <bean id="literalStudent" class="com.site.Student">
+        <property name="id" value="101"/>
+        <property name="name" value="Yohana kefelege"/>
+        <property name="age" value="22"/>
+        <property name="city" value="Addis"/>
+        <property name="country" value="Ethiopia"/>
+    </bean>
+
+
+    <bean id="constructorIndex" class="com.site.Student">
+        <constructor-arg index="0" value="101"/>
+        <constructor-arg index="1" value="Yohana kefeleg"/>
+        <constructor-arg index="2" value="22"/>
+    </bean>
+
+
+    <bean id="constructorPosition" class="com.site.Student">
+        <constructor-arg value="101"/>
+        <constructor-arg value="Yohana kefelege"/>
+        <constructor-arg value="22"/>
+    </bean>
+
+
+    <bean id="constructorName" class="com.site.Student">
+        <constructor-arg name="id" value="101"/>
+        <constructor-arg name="name" value="Yohana kefeleg"/>
+        <constructor-arg name="age" value="22"/>
+    </bean>
+
+
+    <bean id="address" class="com.site.Address">
+        <property name="city" value="Addis"/>
+        <property name="country" value="Ethiopia"/>
+    </bean>
+
+
+    <bean id="objectStudent" class="com.site.Student">
+        <property name="id" value="101"/>
+        <property name="name" value="Yohana kefeleg"/>
+        <property name="age" value="22"/>
+        <property name="address" ref="address"/>
+    </bean>
+
+
+    <bean id="constructorObject" class="com.site.Student">
+        <constructor-arg index="0" value="101"/>
+        <constructor-arg index="1" value="Yohana kefeleg"/>
+        <constructor-arg index="2" value="22"/>
+        <constructor-arg index="3" ref="address"/>
+    </bean>
+
+
+    <bean id="math" class="com.site.Subject">
+        <property name="subjectName" value="Maths 101"/>
+    </bean>
+
+    <bean id="java" class="com.site.Subject">
+        <property name="subjectName" value="Java EE"/>
+    </bean>
+
+
+    <bean id="listStudent" class="com.site.Student">
+        <property name="id" value="101"/>
+        <property name="name" value="Yohana kefeleg"/>
+        <property name="age" value="22"/>
+        <property name="address" ref="address"/>
+        <property name="subjects">
+            <list>
+                <ref bean="math"/>
+                <ref bean="java"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="arrayStudent" class="com.site.Student">
+        <property name="name" value="Array Student"/>
+        <property name="subjects">
+            <array>
+                <ref bean="math"/>
+                <ref bean="java"/>
+            </array>
+        </property>
+    </bean>
+
+
+    <bean id="setStudent" class="com.site.Student">
+        <property name="name" value="Set Student"/>
+        <property name="subjects">
+            <set>
+                <ref bean="math"/>
+                <ref bean="java"/>
+            </set>
+        </property>
+    </bean>
+
+
+    <bean id="singletonStudent"
+          class="com.site.Student"
+          scope="singleton"/>
+
+
+    <bean id="prototypeStudent"
+          class="com.site.Student"
+          scope="prototype"/>
+
+</beans>
