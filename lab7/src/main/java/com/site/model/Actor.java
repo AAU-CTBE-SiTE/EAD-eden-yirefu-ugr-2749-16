@@ -1,5 +1,3 @@
-
-
 package com.site.model;
 
 import jakarta.persistence.Entity;
